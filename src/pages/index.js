@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Shelf from "src/components/shelf";
+import Blog from "src/components/blog";
 
 export default function Home() {
   return (
@@ -14,9 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <img src="./assets/logo.png"></img>
+        <img src="./assets/logo.png" className={styles.mainlogo}></img>
         <Shelf></Shelf>
       </main>
+      <Blog></Blog>
     </>
   );
 }

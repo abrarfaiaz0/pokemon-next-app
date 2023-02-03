@@ -1,0 +1,23 @@
+.card {
+  height: 300px;
+  width: 235px;
+  background-color: rgba(255, 255, 255, 255);
+  border-radius: 7px;
+}
+.image {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  height: 215px;
+  width: 215px;
+  background-color: rgba(243, 243, 242, 255);
+  border-radius: 7px;
+}
+.fold {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  visibility: none;
+}
+.pokemonimg {
+}

@@ -1,6 +1,7 @@
 body {
-  background: url(../../public/assets/Texture.png),
-    url(../../public/assets/Background.png);
-
-  margin: 0px;
+  margin: 0;
+}
+.blog {
+  color: blue;
+  position: relative;
 }

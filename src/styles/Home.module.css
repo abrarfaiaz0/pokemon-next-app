@@ -1,14 +1,16 @@
 .main {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url(../../public/assets/Texture.png),
+    url(../../public/assets/Background.png);
+  height: 1080px;
+  width: 100%;
 }
 .mainlogo {
-  src: "../../public/assets/Logo.png";
+  margin: 3%;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-}
-
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
 }
