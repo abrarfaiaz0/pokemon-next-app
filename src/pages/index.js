@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Shelf from "src/components/shelf";
 import Blog from "src/components/blog";
@@ -24,7 +23,6 @@ export default function Home() {
           <button></button>
         </div>
       </main>
-
       <Blog></Blog>
     </>
   );
