@@ -1,0 +1,9 @@
+.blogcontainer {
+  display: flex;
+}
+.blog {
+  flex-grow: 1;
+}
+.left,
+.right {
+}

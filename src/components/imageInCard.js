@@ -1,6 +1,6 @@
 import styles from "@/styles/Card.module.css";
 
-const ImageInCard = () => {
+const ImageInCard = (props) => {
   return <div className={styles.image}></div>;
 };
 
