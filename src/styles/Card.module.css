@@ -8,6 +8,10 @@
   background-color: rgba(255, 255, 255, 255);
   border-radius: 7px;
   position: relative;
+  transition: 0.5s;
+}
+.card:hover {
+  background-color: rgba(51, 131, 200, 255);
 }
 .image {
   position: absolute;
