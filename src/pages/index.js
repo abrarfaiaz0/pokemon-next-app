@@ -17,7 +17,12 @@ export default function Home() {
       <main className={styles.main}>
         <img src="./assets/logo.png" className={styles.mainlogo}></img>
         <Shelf></Shelf>
+        <div className={styles.prevnext}>
+          <button></button>
+          <button></button>
+        </div>
       </main>
+
       <Blog></Blog>
     </>
   );

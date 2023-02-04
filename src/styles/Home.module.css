@@ -4,13 +4,30 @@
   align-items: center;
   background: url(../../public/assets/Texture.png),
     url(../../public/assets/Background.png);
-  height: 1080px;
-  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
 .mainlogo {
-  margin: 3%;
+  margin-top: 60px;
+  align-self: center;
+  position: static;
+}
+.prevnext {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 20px;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
+  .mainlogo {
+    height: 65px;
+    margin-top: 30px;
+  }
+  .main {
+    background-size: 160% 60vh;
+    background-position: top;
+  }
 }

@@ -13,11 +13,6 @@
   background-color: rgba(243, 243, 242, 255);
   border-radius: 7px;
 }
-.fold {
-  height: 200px;
-  width: 200px;
-  position: relative;
-  visibility: none;
-}
+
 .pokemonimg {
 }

@@ -6,12 +6,16 @@ const Shelf = () => {
     <div className={styles.shelf}>
       <Card></Card>
       <Card></Card>
+
       <Card></Card>
       <Card></Card>
+
       <Card></Card>
       <Card></Card>
+
       <Card></Card>
       <Card></Card>
+
       <Card></Card>
       <Card></Card>
     </div>
