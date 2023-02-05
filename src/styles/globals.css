@@ -10,7 +10,7 @@
 body {
   font-family: Ubuntu;
   margin: 0;
-  overflow: scroll;
+  overflow-x: scroll;
 }
 body::-webkit-scrollbar {
   display: none;

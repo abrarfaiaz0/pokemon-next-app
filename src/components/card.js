@@ -1,5 +1,6 @@
 import styles from "@/styles/Card.module.css";
 import { useEffect, useState } from "react";
+import details from "./details";
 
 function Card(props) {
   const [big, setBig] = useState(false);
