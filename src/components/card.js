@@ -4,8 +4,19 @@ import details from "./details";
 
 function Card(props) {
   const [big, setBig] = useState(false);
-  const [x, setX] = useState([]);
-  const [src, setSrc] = useState([]);
+  const [x, setX] = useState();
+  const [src, setSrc] = useState();
+  const [url, setUrl] = useState([]);
+  const [types, setTypes] = useState([]);
+  const [typeLogos, setTypeLogos] = useState([]);
+
+  function capitalize(word) {
+    const nameLoad = word;
+    const firstLetter = nameLoad.charAt(0);
+    const firstLetterCap = firstLetter.toUpperCase();
+    const remainingLetters = nameLoad.slice(1);
+    return firstLetterCap + remainingLetters;
+  }
 
   function cardHover() {
     setBig(true);
@@ -13,15 +24,44 @@ function Card(props) {
   function cardUnhover() {
     setBig(false);
   }
+  function getData() {
+    setX(capitalize(props.pokemon[1]));
+    setSrc(props.pokemon[2]);
+    setUrl(props.pokemon[0]);
+  }
   function showCardDetails() {}
 
+  async function fetchDetails() {
+    const response = await fetch(url);
+    let json = await response.json();
+    let typeLogo = [];
+    let type = [];
+    if (json.types.length === 2) {
+      typeLogo.push(capitalize(json.types[0].type.url));
+      typeLogo.push(capitalize(json.types[1].type.url));
+      type.push(capitalize(json.types[0].type.name));
+      type.push(capitalize(json.types[1].type.name));
+      console.log(typeLogo);
+    }
+    if (json.types.length === 1) {
+      typeLogo.push(capitalize(json.types[0].type.url));
+      type.push(capitalize(json.types[0].type.name));
+    }
+
+    setTypes(type);
+    setTypeLogos(typeLogo);
+  }
+
+  const pokemonimgclass = big ? styles.pokemonimgbig : styles.pokemonimg;
+  const imgclass = big ? styles.imagebig : styles.image;
+
   useEffect(() => {
-    const nameLoad = props.pokemon[1];
-    const firstLetter = nameLoad.charAt(0);
-    const firstLetterCap = firstLetter.toUpperCase();
-    const remainingLetters = nameLoad.slice(1);
-    setX(firstLetterCap + remainingLetters);
-    setSrc(props.pokemon[2]);
+    fetchDetails();
+  }, []);
+
+  useEffect(() => {
+    fetchDetails();
+    getData();
   }, [props]);
 
   return (
@@ -32,14 +72,11 @@ function Card(props) {
         onMouseLeave={() => cardUnhover()}
         onClick={() => showCardDetails()}
       >
-        <div className={styles.image}>
-          <img
-            src={src}
-            alt={x}
-            className={big ? styles.pokemonimgbig : styles.pokemonimg}
-          ></img>
+        <div className={imgclass}>
+          <img src={src} alt={x} className={pokemonimgclass}></img>
         </div>
         <div className={styles.name}>{x}</div>
+        <div className={styles.type}>{types}</div>
       </div>
     </div>
   );
