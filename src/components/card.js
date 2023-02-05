@@ -62,7 +62,7 @@ function Card(props) {
   useEffect(() => {
     fetchDetails();
     getData();
-  }, [props]);
+  }, [props, types]);
 
   return (
     <div className={styles.flex}>
