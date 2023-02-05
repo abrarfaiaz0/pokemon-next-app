@@ -15,9 +15,12 @@ const Shelf = (props) => {
     ["placeholder", "placeholder", "placeholder"],
     ["placeholder", "placeholder", "placeholder"]
   );
-  console.log(poke[1]);
 
   const offset = props.offset;
+
+  useEffect(() => {
+    fetchPokemons();
+  }, []);
 
   useEffect(() => {
     fetchPokemons();
@@ -62,7 +65,7 @@ const Shelf = (props) => {
     }
     // console.log(result);
 
-    setPoke((poke) => poke.push(result));
+    setPoke((poke) => result);
   }
 
   return (
