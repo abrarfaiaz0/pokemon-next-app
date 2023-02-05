@@ -1,12 +1,18 @@
 import styles from "@/styles/Card.module.css";
+import React, { Component } from "react";
 
 function Card(props) {
-  //console.log(props.pokemon[2]);
-  const nameLoad = props.pokemon[1];
-  const firstLetter = nameLoad.charAt(0);
-  const firstLetterCap = firstLetter.toUpperCase();
-  const remainingLetters = nameLoad.slice(1);
-  const x = firstLetterCap + remainingLetters;
+  componentDidUpdate = () => {
+    doStuff();
+  };
+  function doStuff() {
+    console.log(props.pokemon[1]);
+    const nameLoad = props.pokemon[1];
+    const firstLetter = nameLoad.charAt(0);
+    const firstLetterCap = firstLetter.toUpperCase();
+    const remainingLetters = nameLoad.slice(1);
+    const x = firstLetterCap + remainingLetters;
+  }
 
   return (
     <div className={styles.flex}>

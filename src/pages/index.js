@@ -24,13 +24,13 @@ export default function Home() {
         <div className={styles.prevnext}>
           <button
             className={styles.nav}
-            onClick={() => setOffset((offset) => offset - 10)}
+            // onClick={() => setOffset((offset) => offset - 10)}
           >
             PREV
           </button>
           <button
             className={styles.nav}
-            onClick={() => setOffset((offset) => offset + 10)}
+            // onClick={() => setOffset((offset) => offset + 10)}
           >
             NEXT
           </button>

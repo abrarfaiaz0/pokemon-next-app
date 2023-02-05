@@ -3,9 +3,21 @@ import styles from "@/styles/Shelf.module.css";
 import React, { useEffect, useState } from "react";
 
 const Shelf = (props) => {
-  const [poke, setPoke] = useState(["", "", ""]);
+  const [poke, setPoke] = useState(
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"],
+    ["placeholder", "placeholder", "placeholder"]
+  );
+  console.log(poke[1]);
+
   const offset = props.offset;
-  let pokemonsOnScreen = [];
 
   useEffect(() => {
     fetchPokemons();
@@ -40,8 +52,8 @@ const Shelf = (props) => {
       }),
       method: "POST",
     });
+
     const json = await response.json();
-    console.log(json);
 
     const fetched = json.data.pokemons.results;
     let result = [];
@@ -49,9 +61,8 @@ const Shelf = (props) => {
       result.push(Object.values(fetched[key]));
     }
     // console.log(result);
-    setPoke((prev) => []);
-    setPoke((prev) => result);
-    console.log(poke);
+
+    setPoke((poke) => poke.push(result));
   }
 
   return (
@@ -61,11 +72,11 @@ const Shelf = (props) => {
       <Card pokemon={poke[2]} />
       <Card pokemon={poke[3]} />
       <Card pokemon={poke[4]} />
-      {/* <Card pokemon={poke[5]} />
+      <Card pokemon={poke[5]} />
       <Card pokemon={poke[6]} />
       <Card pokemon={poke[7]} />
       <Card pokemon={poke[8]} />
-      <Card pokemon={poke[9]} /> */}
+      <Card pokemon={poke[9]} />
     </div>
   );
 };
