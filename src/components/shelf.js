@@ -61,11 +61,11 @@ const Shelf = (props) => {
       <Card pokemon={poke[2]} />
       <Card pokemon={poke[3]} />
       <Card pokemon={poke[4]} />
-      <Card pokemon={poke[5]} />
+      {/* <Card pokemon={poke[5]} />
       <Card pokemon={poke[6]} />
       <Card pokemon={poke[7]} />
       <Card pokemon={poke[8]} />
-      <Card pokemon={poke[9]} />
+      <Card pokemon={poke[9]} /> */}
     </div>
   );
 };
