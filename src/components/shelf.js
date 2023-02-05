@@ -2,26 +2,15 @@ import Card from "./card";
 import styles from "@/styles/Shelf.module.css";
 import React, { useEffect, useState } from "react";
 
+// () => fetchPokemons();
+
 const Shelf = (props) => {
-  const [poke, setPoke] = useState(
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"],
-    ["placeholder", "placeholder", "placeholder"]
-  );
+  const [poke, setPoke] = useState([]);
 
   const offset = props.offset;
-
   useEffect(() => {
     fetchPokemons();
   }, []);
-
   useEffect(() => {
     fetchPokemons();
   }, [offset]);
@@ -57,31 +46,32 @@ const Shelf = (props) => {
     });
 
     const json = await response.json();
-
     const fetched = json.data.pokemons.results;
     let result = [];
     for (let key in fetched) {
       result.push(Object.values(fetched[key]));
     }
-    // console.log(result);
-
-    setPoke((poke) => result);
+    console.log("result", result);
+    setPoke(result);
+    console.log("poke", poke);
   }
-
-  return (
-    <div className={styles.shelf}>
-      <Card pokemon={poke[0]} />
-      <Card pokemon={poke[1]} />
-      <Card pokemon={poke[2]} />
-      <Card pokemon={poke[3]} />
-      <Card pokemon={poke[4]} />
-      <Card pokemon={poke[5]} />
-      <Card pokemon={poke[6]} />
-      <Card pokemon={poke[7]} />
-      <Card pokemon={poke[8]} />
-      <Card pokemon={poke[9]} />
-    </div>
-  );
+  if (poke.length !== 0) {
+    console.log("here", poke);
+    return (
+      <div className={styles.shelf}>
+        <Card pokemon={poke[0]} />
+        <Card pokemon={poke[1]} />
+        <Card pokemon={poke[2]} />
+        <Card pokemon={poke[3]} />
+        <Card pokemon={poke[4]} />
+        <Card pokemon={poke[5]} />
+        <Card pokemon={poke[6]} />
+        <Card pokemon={poke[7]} />
+        <Card pokemon={poke[8]} />
+        <Card pokemon={poke[9]} />
+      </div>
+    );
+  }
 };
 
 export default Shelf;
