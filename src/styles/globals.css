@@ -1,4 +1,14 @@
+@font-face {
+  font-family: Ubuntu;
+  src: url(../../public/assets/Ubuntu/Ubuntu-Regular.ttf);
+}
+@font-face {
+  font-family: Ubuntu-bold;
+  src: url(../../public/assets/Ubuntu/Ubuntu-Bold.ttf);
+}
+
 body {
+  font-family: Ubuntu;
   margin: 0;
   overflow: scroll;
 }

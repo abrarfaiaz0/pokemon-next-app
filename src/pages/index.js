@@ -3,8 +3,11 @@ import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Shelf from "src/components/shelf";
 import Blog from "src/components/blog";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
+  const [offset, setOffset] = useState(0);
+
   return (
     <>
       <Head>
@@ -16,11 +19,21 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="./assets/logo.png" className={styles.mainlogo}></img>
-        <Shelf></Shelf>
+        <Shelf offset={offset}></Shelf>
         {/* A button property for loading the next of items */}
         <div className={styles.prevnext}>
-          <button></button>
-          <button></button>
+          <button
+            className={styles.nav}
+            onClick={() => setOffset((offset) => offset - 10)}
+          >
+            PREV
+          </button>
+          <button
+            className={styles.nav}
+            onClick={() => setOffset((offset) => offset + 10)}
+          >
+            NEXT
+          </button>
         </div>
       </main>
       <Blog></Blog>
