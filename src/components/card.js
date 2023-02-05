@@ -7,8 +7,17 @@ function Card(props) {
   const [x, setX] = useState();
   const [src, setSrc] = useState();
   const [url, setUrl] = useState([]);
-  const [types, setTypes] = useState([]);
-  const [typeLogos, setTypeLogos] = useState([]);
+  const [types, setTypes] = useState();
+
+  useEffect(() => {
+    fetchDetails();
+    getData();
+  }, []);
+
+  useEffect(() => {
+    fetchDetails();
+    getData();
+  }, [types, props]);
 
   function capitalize(word) {
     const nameLoad = word;
@@ -25,44 +34,31 @@ function Card(props) {
     setBig(false);
   }
   function getData() {
-    setX(capitalize(props.pokemon[1]));
+    setX(capitalize(props.pokemon));
     setSrc(props.pokemon[2]);
-    setUrl(props.pokemon[0]);
+    setUrl(props.url);
   }
   function showCardDetails() {}
 
   async function fetchDetails() {
-    const response = await fetch(url);
-    let json = await response.json();
-    let typeLogo = [];
-    let type = [];
-    if (json.types.length === 2) {
-      typeLogo.push(capitalize(json.types[0].type.url));
-      typeLogo.push(capitalize(json.types[1].type.url));
-      type.push(capitalize(json.types[0].type.name));
-      type.push(capitalize(json.types[1].type.name));
-      console.log(typeLogo);
-    }
-    if (json.types.length === 1) {
-      typeLogo.push(capitalize(json.types[0].type.url));
-      type.push(capitalize(json.types[0].type.name));
-    }
+    if (url !== []) {
+      const response = await fetch(url);
+      let json = await response.json();
+      let type = [];
+      if (json.types.length === 2) {
+        type.push(capitalize(json.types[0].type.name));
+        type.push(capitalize(json.types[1].type.name));
+      }
+      if (json.types.length === 1) {
+        type.push(capitalize(json.types[0].type.name));
+      }
 
-    setTypes(type);
-    setTypeLogos(typeLogo);
+      setTypes(type);
+    }
   }
 
   const pokemonimgclass = big ? styles.pokemonimgbig : styles.pokemonimg;
   const imgclass = big ? styles.imagebig : styles.image;
-
-  useEffect(() => {
-    fetchDetails();
-  }, []);
-
-  useEffect(() => {
-    fetchDetails();
-    getData();
-  }, [props, types]);
 
   return (
     <div className={styles.flex}>
@@ -73,7 +69,7 @@ function Card(props) {
         onClick={() => showCardDetails()}
       >
         <div className={imgclass}>
-          <img src={src} alt={x} className={pokemonimgclass}></img>
+          <img alt={x} className={pokemonimgclass}></img>
         </div>
         <div className={styles.name}>{x}</div>
         <div className={styles.type}>{types}</div>

@@ -6,14 +6,16 @@ import React, { useEffect, useState } from "react";
 
 const Shelf = (props) => {
   const [poke, setPoke] = useState([]);
-
+  const [url, setUrl] = useState([]);
   const offset = props.offset;
+
+  console.log(offset);
   useEffect(() => {
     fetchPokemons();
   }, []);
   useEffect(() => {
     fetchPokemons();
-  }, [offset]);
+  }, [props]);
 
   const gqlQuery = `query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {
@@ -46,29 +48,31 @@ const Shelf = (props) => {
     });
 
     const json = await response.json();
-    const fetched = json.data.pokemons.results;
-    let result = [];
-    for (let key in fetched) {
-      result.push(Object.values(fetched[key]));
-    }
-    console.log("result", result);
-    setPoke(result);
-    console.log("poke", poke);
+
+    let fetched_arr = json.data.pokemons.results;
+    let results_name = [];
+    let results_url = [];
+    fetched_arr.forEach((element) => {
+      results_name.push(element["name"]);
+      results_url.push(element["url"]);
+    });
+    setPoke(results_name);
+    setUrl(results_url);
   }
   if (poke.length !== 0) {
     console.log("here", poke);
     return (
       <div className={styles.shelf}>
-        <Card pokemon={poke[0]} />
-        <Card pokemon={poke[1]} />
-        <Card pokemon={poke[2]} />
-        <Card pokemon={poke[3]} />
-        <Card pokemon={poke[4]} />
-        <Card pokemon={poke[5]} />
-        <Card pokemon={poke[6]} />
-        <Card pokemon={poke[7]} />
-        <Card pokemon={poke[8]} />
-        <Card pokemon={poke[9]} />
+        <Card pokemon={poke[0]} url={url[0]} />
+        <Card pokemon={poke[1]} url={url[1]} />
+        <Card pokemon={poke[2]} url={url[2]} />
+        <Card pokemon={poke[3]} url={url[3]} />
+        <Card pokemon={poke[4]} url={url[4]} />
+        <Card pokemon={poke[5]} url={url[5]} />
+        <Card pokemon={poke[6]} url={url[6]} />
+        <Card pokemon={poke[7]} url={url[7]} />
+        <Card pokemon={poke[8]} url={url[8]} />
+        <Card pokemon={poke[9]} url={url[9]} />
       </div>
     );
   }
