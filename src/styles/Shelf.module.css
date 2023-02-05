@@ -13,7 +13,7 @@
     grid-auto-columns: 30%;
     grid-template-rows: repeat(1, auto);
     margin-top: 50px;
-    overflow-x: auto;
+    overflow-x: scroll;
   }
   .shelf::-webkit-scrollbar {
     display: none;
