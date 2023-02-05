@@ -8,6 +8,13 @@ import React, { useEffect, useState } from "react";
 export default function Home() {
   const [offset, setOffset] = useState(0);
 
+  function incrementOffset() {
+    if (offset < 1279) setOffset((offset) => offset + 10);
+  }
+  function decrementOffset() {
+    if (offset > 0) setOffset((offset) => offset - 10);
+  }
+
   return (
     <>
       <Head>
@@ -23,14 +30,14 @@ export default function Home() {
         {/* A button property for loading the next of items */}
         <div className={styles.prevnext}>
           <button
-            className={styles.nav}
-            onClick={() => setOffset((offset) => offset - 10)}
+            className={offset === 0 ? styles.navdisabled : styles.nav}
+            onClick={() => decrementOffset()}
           >
             PREV
           </button>
           <button
-            className={styles.nav}
-            onClick={() => setOffset((offset) => offset + 10)}
+            className={offset > 1200 ? styles.navdisabled : styles.nav}
+            onClick={() => incrementOffset()}
           >
             NEXT
           </button>

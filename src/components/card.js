@@ -2,8 +2,17 @@ import styles from "@/styles/Card.module.css";
 import { useEffect, useState } from "react";
 
 function Card(props) {
+  const [big, setBig] = useState(false);
   const [x, setX] = useState([]);
   const [src, setSrc] = useState([]);
+
+  function cardHover() {
+    setBig(true);
+  }
+  function cardUnhover() {
+    setBig(false);
+  }
+  function showCardDetails() {}
 
   useEffect(() => {
     const nameLoad = props.pokemon[1];
@@ -16,9 +25,18 @@ function Card(props) {
 
   return (
     <div className={styles.flex}>
-      <div className={styles.card}>
+      <div
+        className={styles.card}
+        onMouseEnter={() => cardHover()}
+        onMouseLeave={() => cardUnhover()}
+        onClick={() => showCardDetails()}
+      >
         <div className={styles.image}>
-          <img src={src} alt={x}></img>
+          <img
+            src={src}
+            alt={x}
+            className={big ? styles.pokemonimgbig : styles.pokemonimg}
+          ></img>
         </div>
         <div className={styles.name}>{x}</div>
       </div>
