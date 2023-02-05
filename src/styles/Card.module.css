@@ -40,13 +40,13 @@
 }
 
 .pokemonimg {
-  position: relative;
+  position: absolute;
   width: 200px;
   height: 200px;
   transition: all 0.7s;
 }
 .pokemonimgbig {
-  position: relative;
+  position: absolute;
   width: 230px;
   height: 230px;
   transition: all 0.7s;
