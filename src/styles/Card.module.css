@@ -9,9 +9,12 @@
   border-radius: 7px;
   position: relative;
   transition: 0.5s;
+  color: black;
 }
 .card:hover {
   background-color: rgba(51, 131, 200, 255);
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+  color: white;
 }
 .image {
   position: absolute;
