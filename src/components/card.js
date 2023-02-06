@@ -115,12 +115,12 @@ function Card(props) {
           <div className={styles.type}>
             <img
               className={styles.typeicon}
-              src={`assets/icons/${types["0"]}.png`}
+              src={`../public/assets/icons/${types["0"]}.png`}
             ></img>
             {types.length === 2 ? (
               <img
                 className={styles.typeicon}
-                src={`assets/icons/${types["1"]}.png`}
+                src={`../public/assets/icons/${types["1"]}.png`}
               ></img>
             ) : null}
           </div>
