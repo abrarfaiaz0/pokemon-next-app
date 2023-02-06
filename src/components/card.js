@@ -8,6 +8,7 @@ function Card(props) {
   const [src, setSrc] = useState([]);
   const [d, setD] = useState(false);
   const [types, setTypes] = useState([]);
+  const [stats, setStats] = useState([]);
 
   useEffect(() => {
     fetchDetails();
@@ -42,6 +43,20 @@ function Card(props) {
     let type = [];
     let src_temp = [];
     let x_temp = [];
+    let stat_arr = [];
+    let hp = json.stats["0"].base_stat;
+    let atk = json.stats["1"].base_stat;
+    let def = json.stats["2"].base_stat;
+    let spa = json.stats["3"].base_stat;
+    let spd = json.stats["4"].base_stat;
+    let speed = json.stats["5"].base_stat;
+    stat_arr.push(hp);
+    stat_arr.push(atk);
+    stat_arr.push(def);
+    stat_arr.push(spa);
+    stat_arr.push(spd);
+    stat_arr.push(speed);
+    setStats(stat_arr);
 
     if (json.types.length === 2) {
       type.push(capitalize(json.types[0].type.name));
@@ -62,7 +77,14 @@ function Card(props) {
 
   const pokemonimgclass = big ? styles.pokemonimgbig : styles.pokemonimg;
   const imgclass = big ? styles.imagebig : styles.image;
-  if (d) return <Details url={props.url} remove={() => toggleCardDetails()} />;
+  if (d)
+    return (
+      <Details
+        url={props.url}
+        remove={() => toggleCardDetails()}
+        stats={stats}
+      />
+    );
   else
     return (
       <div className={styles.flex}>

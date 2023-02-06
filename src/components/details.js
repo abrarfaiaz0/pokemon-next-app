@@ -1,27 +1,40 @@
 import styles from "@/styles/Details.module.css";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function Details(props) {
-  async function getDetails() {
-    const response = await fetch(props.url);
-    let json = await response.json();
-    const hp = json.stats["0"].base_stat;
-    const atk = json.stats["1"].base_stat;
-    const def = json.stats["2"].base_stat;
-    const spa = json.stats["3"].base_stat;
-    const spd = json.stats["4"].base_stat;
-    const speed = json.stats["5"].base_stat;
-    console.log("in details", [hp, atk, def, spa, spd, speed]);
-  }
-
-  useEffect(() => {
-    getDetails();
-  }, [props]);
+  let hp = props.stats["0"];
+  let atk = props.stats["1"];
+  let def = props.stats["2"];
+  let spa = props.stats["3"];
+  let spd = props.stats["4"];
+  let speed = props.stats["5"];
+  console.log();
 
   return (
-    <div className={styles.main}>
-      <button onClick={props.remove} className={styles.button}></button>
-    </div>
+    <>
+      <img src="assets/Left.png" className={styles.left}></img>
+      <div className={styles.main}>
+        <img src="assets/logo.png" className={styles.mainlogo}></img>
+        <div className={styles.content}>
+          <div className={styles.intro}>x</div>
+
+          <img className={styles.image}></img>
+
+          <div className={styles.stats}>
+            HP:{hp}
+            Attack:{atk}
+            Defense:{def}
+            Special Attack:{spa}
+            Special Defense:{spd}
+            Speed:{speed}
+          </div>
+        </div>
+        <button onClick={props.remove} className={styles.button}>
+          Back to Homepage
+        </button>
+      </div>
+      <img src="assets/Left.png" className={styles.left}></img>
+    </>
   );
 }
 
