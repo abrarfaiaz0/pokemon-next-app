@@ -55,14 +55,14 @@
 
 .pokemonimg {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   transition: all 0.5s;
 }
 .pokemonimgbig {
   position: absolute;
-  width: 230px;
-  height: 230px;
+  width: 215px;
+  height: 215px;
   transition: all 0.5s;
 }
 .type {

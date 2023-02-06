@@ -2,20 +2,19 @@ import Card from "./card";
 import styles from "@/styles/Shelf.module.css";
 import React, { useEffect, useState } from "react";
 
-// () => fetchPokemons();
-
 const Shelf = (props) => {
   const [poke, setPoke] = useState([]);
   const [url, setUrl] = useState([]);
-  const offset = props.offset;
+  let offset = props.offset;
+  console.log("shelf- >", offset);
 
   console.log(offset);
   useEffect(() => {
     fetchPokemons();
-  }, []);
+  }, [props, offset]);
   useEffect(() => {
     fetchPokemons();
-  }, [props]);
+  }, [offset]);
 
   const gqlQuery = `query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {
@@ -58,24 +57,23 @@ const Shelf = (props) => {
     });
     setPoke(results_name);
     setUrl(results_url);
+    console.log("loop");
   }
-  if (poke.length !== 0) {
-    console.log("here", poke);
-    return (
-      <div className={styles.shelf}>
-        <Card pokemon={poke[0]} url={url[0]} />
-        <Card pokemon={poke[1]} url={url[1]} />
-        <Card pokemon={poke[2]} url={url[2]} />
-        <Card pokemon={poke[3]} url={url[3]} />
-        <Card pokemon={poke[4]} url={url[4]} />
-        <Card pokemon={poke[5]} url={url[5]} />
-        <Card pokemon={poke[6]} url={url[6]} />
-        <Card pokemon={poke[7]} url={url[7]} />
-        <Card pokemon={poke[8]} url={url[8]} />
-        <Card pokemon={poke[9]} url={url[9]} />
-      </div>
-    );
-  }
+
+  return (
+    <div className={styles.shelf}>
+      <Card url={url[0]} />
+      <Card url={url[1]} />
+      <Card url={url[2]} />
+      <Card url={url[3]} />
+      <Card url={url[4]} />
+      <Card url={url[5]} />
+      <Card url={url[6]} />
+      <Card url={url[7]} />
+      <Card url={url[8]} />
+      <Card url={url[9]} />
+    </div>
+  );
 };
 
 export default Shelf;
