@@ -1,22 +1,17 @@
 import styles from "@/styles/Card.module.css";
 import { useContext, useEffect, useState } from "react";
-import details from "./details";
-import { OffsetGlobal } from "@/pages";
+import Details from "./details";
 
 function Card(props) {
   const [big, setBig] = useState(false);
   const [x, setX] = useState();
   const [src, setSrc] = useState([]);
-  const [url, setUrl] = useState([]);
+  const [d, setD] = useState(false);
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
-    getUrl();
     fetchDetails();
   }, []);
-  useEffect(() => {
-    getUrl();
-  }, [props]);
 
   useEffect(() => {
     fetchDetails();
@@ -36,13 +31,13 @@ function Card(props) {
   function cardUnhover() {
     setBig(false);
   }
-  function getUrl() {
-    setUrl(props.url);
+
+  function toggleCardDetails() {
+    setD((d) => !d);
   }
-  function showCardDetails() {}
 
   async function fetchDetails() {
-    const response = await fetch(url);
+    const response = await fetch(props.url);
     let json = await response.json();
     let type = [];
     let src_temp = [];
@@ -67,23 +62,24 @@ function Card(props) {
 
   const pokemonimgclass = big ? styles.pokemonimgbig : styles.pokemonimg;
   const imgclass = big ? styles.imagebig : styles.image;
-
-  return (
-    <div className={styles.flex}>
-      <div
-        className={styles.card}
-        onMouseEnter={() => cardHover()}
-        onMouseLeave={() => cardUnhover()}
-        onClick={() => showCardDetails()}
-      >
-        <div className={imgclass}>
-          <img src={src} alt={x} className={pokemonimgclass}></img>
+  if (d) return <Details url={props.url} remove={() => toggleCardDetails()} />;
+  else
+    return (
+      <div className={styles.flex}>
+        <div
+          className={styles.card}
+          onMouseEnter={() => cardHover()}
+          onMouseLeave={() => cardUnhover()}
+          onClick={() => toggleCardDetails()}
+        >
+          <div className={imgclass}>
+            <img src={src} alt={x} className={pokemonimgclass}></img>
+          </div>
+          <div className={styles.name}>{x}</div>
+          <div className={styles.type}>{types}</div>
         </div>
-        <div className={styles.name}>{x}</div>
-        <div className={styles.type}>{types}</div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Card;

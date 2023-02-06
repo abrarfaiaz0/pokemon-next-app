@@ -61,14 +61,14 @@ const Shelf = (props) => {
   return (
     <div className={styles.shelf}>
       <Card url={url[0]} />
-      <Card url={url[5]} />
       <Card url={url[1]} />
-      <Card url={url[6]} />
       <Card url={url[2]} />
-      <Card url={url[7]} />
       <Card url={url[3]} />
-      <Card url={url[8]} />
       <Card url={url[4]} />
+      <Card url={url[5]} />
+      <Card url={url[6]} />
+      <Card url={url[7]} />
+      <Card url={url[8]} />
       <Card url={url[9]} />
     </div>
   );

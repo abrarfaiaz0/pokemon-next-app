@@ -17,22 +17,25 @@
 }
 .blogtext {
   font-family: Ubuntu;
+
   margin-top: 70px;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 50%;
+  grid-auto-columns: 60% 40%;
   gap: 2%;
   width: 100%;
 }
 .blogtextleft {
 }
+
 .blogtextright {
 }
+
 .blog {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 70%;
 }
 .left {
