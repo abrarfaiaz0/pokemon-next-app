@@ -9,6 +9,8 @@ function Card(props) {
   const [d, setD] = useState(false);
   const [types, setTypes] = useState([]);
   const [stats, setStats] = useState([]);
+  const [heightweight, setHeightWeight] = useState([]);
+  const [id, setId] = useState();
 
   useEffect(() => {
     fetchDetails();
@@ -44,19 +46,23 @@ function Card(props) {
     let src_temp = [];
     let x_temp = [];
     let stat_arr = [];
+    let hw = [];
+    let i = 0;
     let hp = json.stats["0"].base_stat;
     let atk = json.stats["1"].base_stat;
     let def = json.stats["2"].base_stat;
     let spa = json.stats["3"].base_stat;
     let spd = json.stats["4"].base_stat;
     let speed = json.stats["5"].base_stat;
+    hw.push(json.height);
+    hw.push(json.weight);
+    i = json.id;
     stat_arr.push(hp);
     stat_arr.push(atk);
     stat_arr.push(def);
     stat_arr.push(spa);
     stat_arr.push(spd);
     stat_arr.push(speed);
-    setStats(stat_arr);
 
     if (json.types.length === 2) {
       type.push(capitalize(json.types[0].type.name));
@@ -73,6 +79,9 @@ function Card(props) {
     setX(x_temp);
     setSrc(src_temp);
     setTypes(type);
+    setStats(stat_arr);
+    setHeightWeight(hw);
+    setId(i);
   }
 
   const pokemonimgclass = big ? styles.pokemonimgbig : styles.pokemonimg;
@@ -83,6 +92,10 @@ function Card(props) {
         url={props.url}
         remove={() => toggleCardDetails()}
         stats={stats}
+        name={x}
+        src={src}
+        hw={heightweight}
+        id={id}
       />
     );
   else
