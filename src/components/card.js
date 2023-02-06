@@ -12,6 +12,10 @@ function Card(props) {
 
   useEffect(() => {
     getUrl();
+    fetchDetails();
+  }, []);
+  useEffect(() => {
+    getUrl();
   }, [props]);
 
   useEffect(() => {
@@ -54,7 +58,7 @@ function Card(props) {
 
     src_temp.push(json.sprites.other["official-artwork"]["front_default"]);
     x_temp.push(capitalize(json.name));
-    console.log("X");
+    console.log("loop_in_card");
 
     setX(x_temp);
     setSrc(src_temp);
