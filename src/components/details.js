@@ -13,6 +13,7 @@ function Details(props) {
   let height = props.hw["0"];
   let weight = props.hw["1"];
   let id = props.id;
+  let types = props.types;
   console.log();
 
   return (
@@ -23,6 +24,19 @@ function Details(props) {
           <div className={styles.intro}>
             <div className={styles.name}>
               {x} #{id}
+            </div>
+            <div className={styles.typestxt}>Types:</div>
+            <div className={styles.type}>
+              <img
+                className={styles.typeicon}
+                src={`./assets/icons/${types["0"]}.png`}
+              ></img>
+              {types.length === 2 ? (
+                <img
+                  className={styles.typeicon}
+                  src={`./assets/icons/${types["1"]}.png`}
+                ></img>
+              ) : null}
             </div>
             <div className={styles.bio}>
               <div>Height: {height / 10}m</div>

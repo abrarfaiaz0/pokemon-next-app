@@ -96,7 +96,7 @@ function Card(props) {
         src={src}
         hw={heightweight}
         id={id}
-        type={types}
+        types={types}
       />
     );
   else
