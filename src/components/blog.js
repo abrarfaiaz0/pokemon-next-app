@@ -17,7 +17,7 @@ const Blog = () => {
           <div className={styles.blogtextleft}>
             <div className={styles.lefttop}>
               <div className={styles.three}>
-                <div>
+                <div className={styles.vanish}>
                   Integer elit quam, vestibulum sit amet justo elementum,
                   pulvinar finibus lectus. In posuere odio quam, sagittis
                   egestas mi convallis id. Aliquam pulvinar augue eget metus
@@ -27,7 +27,7 @@ const Blog = () => {
                   tristique vestibulum vitae eu tellus.
                 </div>
                 <div className={styles.two}>
-                  <div>
+                  <div className={styles.vanish}>
                     Aliquam eu quam viverra, semper nisl vel, malesuada velit.
                     Nam blandit in lorem et lobortis. Pellentesque vel nisi
                     enim. Suspendisse potenti. Sed elementum tincidunt varius.
@@ -46,7 +46,7 @@ const Blog = () => {
                     <img src="./assets/Image04.png"></img>
                   </div>
                 </div>
-                <div>
+                <div className={styles.vanish}>
                   Maecenas volutpat purus ac sapien viverra porttitor. Aliquam
                   at metus imperdiet, congue leo nec, feugiat justo. Aliquam
                   orci nunc, ullamcorper non lacinia et, consequat iaculis arcu.
@@ -63,7 +63,7 @@ const Blog = () => {
                 </div>
               </div>
             </div>
-            <div className={styles.leftbottom}>
+            <div className={styles.mobile1}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac
               elementum augue. Quisque porttitor finibus nulla. Aliquam
               convallis maximus massa eu consectetur. Fusce eget turpis ut purus
@@ -81,8 +81,9 @@ const Blog = () => {
               eleifend eleifend ipsum.
             </div>
           </div>
+          <img className={styles.layout} src="./assets/layout.png"></img>
           <div className={styles.blogtextright}>
-            <div>
+            <div className={styles.mobile2}>
               Quisque dictum eleifend efficitur. Duis ornare, justo a viverra
               sagittis, ligula odio luctus arcu, non vehicula justo tortor non
               mi. Donec eleifend mollis felis, id euismod lectus tristique
@@ -92,7 +93,7 @@ const Blog = () => {
               <div className={styles.divimg}>
                 <img src="./assets/Image05.png"></img>
               </div>
-              <div>
+              <div className={styles.vanish}>
                 quam bibendum metus mattis bibendum. Vestibulum convallis a
                 neque sit amet pretium. Pellentesque dapibus ante consequat,
                 bibendum quam vel, aliquet lacus. Pellentesque habitant morbi
@@ -108,7 +109,7 @@ const Blog = () => {
               <div className={styles.divimg}>
                 <img src="./assets/Image01.png"></img>
               </div>
-              <div>
+              <div className={styles.vanish}>
                 Maecenas viverra ipsum sed vulputate euismod. Mauris neque ante,
                 tempor in eleifend eu, eleifend eleifend ipsum. Integer elit
                 quam, vestibulum sit amet justo elementum, pulvinar finibus
@@ -118,7 +119,7 @@ const Blog = () => {
                 platea dictumst.
               </div>
             </div>
-            <div>
+            <div className={styles.vanish}>
               sed consectetur eu, scelerisque at est. Aliquam congue lorem vel
               risus lacinia pellentesque. Aliquam eu quam viverra, semper nisl
               vel, malesuada velit. Nam blandit in lorem et lobortis.

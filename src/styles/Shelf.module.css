@@ -54,7 +54,7 @@
   }
 }
 
-@media (max-width: 310px) {
+@media (max-width: 419px) {
   .shelf {
     grid-auto-flow: column;
     grid-auto-columns: 70%;
