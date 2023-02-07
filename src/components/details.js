@@ -23,18 +23,17 @@ function Details(props) {
         <div className={styles.content}>
           <div className={styles.intro}>
             <div className={styles.name}>
-              {x} #{id}
+              {x}&nbsp;#{id}
             </div>
-            <div className={styles.typestxt}>Types:</div>
             <div className={styles.type}>
               <img
                 className={styles.typeicon}
-                src={`./static/img/${types["0"]}.png`}
+                src={`./assets/icons/${types["0"]}.png`}
               ></img>
               {types.length === 2 ? (
                 <img
                   className={styles.typeicon}
-                  src={`./static/img/${types["1"]}.png`}
+                  src={`./assets/icons/${types["1"]}.png`}
                 ></img>
               ) : null}
             </div>
@@ -45,6 +44,10 @@ function Details(props) {
           </div>
           <img className={styles.image} src={src}></img>
           <div className={styles.stats}>
+            <span>
+              <u>Stats</u>
+            </span>
+            <br></br>
             <span>HP: {hp}</span>
             <span>Attack: {atk}</span>
             <span>Defense: {def}</span>

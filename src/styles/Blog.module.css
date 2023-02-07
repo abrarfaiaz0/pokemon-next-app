@@ -6,7 +6,7 @@
 }
 .blogtitle {
   text-align: center;
-  margin-top: 85px;
+  margin-top: 70px;
   font-family: Ubuntu-bold;
   font-size: 45px;
   color: rgba(36, 122, 196, 255);
@@ -57,7 +57,7 @@
 }
 @media (max-width: 1280px) {
   .left {
-    display: none;
+    width: 0;
   }
   .blogtitle {
     font-size: 30px;

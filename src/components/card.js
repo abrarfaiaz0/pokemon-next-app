@@ -36,6 +36,7 @@ function Card(props) {
   }
 
   function toggleCardDetails() {
+    setBig(false);
     setD((d) => !d);
   }
 
@@ -115,12 +116,12 @@ function Card(props) {
           <div className={styles.type}>
             <img
               className={styles.typeicon}
-              src={`./static/img/${types["0"]}.png`}
+              src={`./assets/icons/${types["0"]}.png`}
             ></img>
             {types.length === 2 ? (
               <img
                 className={styles.typeicon}
-                src={`./static/img/${types["1"]}.png`}
+                src={`./assets/icons/${types["1"]}.png`}
               ></img>
             ) : null}
           </div>
